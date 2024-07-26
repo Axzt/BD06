@@ -1,3 +1,6 @@
 def file_type_getter(file_extension_tuples):
-    pass
-#! This is where we are at: https://www.boot.dev/lessons/6efdb47f-520a-4fd9-8629-34eb69f57667
+    file_extensions_dict = {}
+    for tuples in file_extension_tuples:
+        for extension in tuples[1]:
+            file_extensions_dict[extension] = tuples[0]
+    return lambda extensions: file_extensions_dict.get(extensions, "Unknown")
